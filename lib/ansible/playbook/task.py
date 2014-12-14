@@ -232,7 +232,7 @@ class Task(object):
         self.async_seconds = ds.get('async', 0)  # not async by default
         self.async_seconds = template.template_from_string(play.basedir, self.async_seconds, all_vars)
         self.async_seconds = int(self.async_seconds)
-        self.async_max_conseq_retries = ds.get('retry', 0)  # no retries by default
+        self.async_max_conseq_retries = ds.get('retry', 5)  # 5 retries by default
         self.async_max_conseq_retries = template.template_from_string(play.basedir, self.async_max_conseq_retries, all_vars)
         self.async_max_conseq_retries = int(self.async_max_conseq_retries)
 
